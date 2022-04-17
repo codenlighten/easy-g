@@ -9,8 +9,8 @@ const run = new Run({
 console.log(run.purse);
 
 //private keys and wifs
-// const privkey = bsv.PrivateKey.fromRandom();
-// console.log(privkey);
+const privkey = bsv.PrivateKey.fromRandom();
+console.log(privkey);
 // const privkey2 = privkey.toWIF();
 // console.log(privkey2);
 
