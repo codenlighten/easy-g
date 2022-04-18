@@ -1,3 +1,3 @@
 const handleClick = () => {
-	fetch(`/app?${document.getElementById("txid").value}`);
+	fetch(`${document.getElementById("txid").value}`);
 };

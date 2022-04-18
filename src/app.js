@@ -16,7 +16,8 @@ class Meta {
 		authorPaymail,
 		publishers,
 		publishersID,
-		publishersPaymail
+		publishersPaymail,
+		publishDate
 	) {
 		(this.application = application),
 			(this.appID = appID),
@@ -26,29 +27,32 @@ class Meta {
 			(this.publishers = publishers),
 			(this.publishersID = publishersID),
 			(this.publishersPaymail = publishersPaymail);
+		this.publishDate = Date();
 	}
 }
 
 let meta = new Meta(
 	"streamable.fm",
 	"1CX54YFZcLSGzoUJHjAXNkTFh3WJRhSyH1",
-	"Can We Just Agree?",
+	"NFTYPng",
 	["Greg Ward"],
 	["14hHqvoSB5nC5aiSAhxvEcpyg6CiLAhru9"],
-	["1KEQPYyEhJwxX95mAH9uSbqyukhvQgpCo5"],
 	["Greg Ward", "Rare Generation Publishing"],
+	["1KEQPYyEhJwxX95mAH9uSbqyukhvQgpCo5"],
 	["14hHqvoSB5nC5aiSAhxvEcpyg6CiLAhru9", "17Tibq24ahAK71a5Ffqaf5RfQpWGb5Yovb"],
 	[`${process.env.ADDRESS2}`]
 );
 
 // console.log("meta", meta.appID);
 
-const asset = "./assets/canweagree.mp3";
+const asset = "./assets/nfty.png";
 const main = async (asset, meta) => {
+	console.log("...working");
 	try {
 		const bFile = await BFile.fromFilePath(asset, meta);
 		// console.log(bFile);
 		const txid = await publish(bFile, networks.MAINNET, purse2);
+
 		console.log("Success Publishing media", txid);
 		myReader(txid);
 	} catch (error) {
@@ -56,8 +60,10 @@ const main = async (asset, meta) => {
 	}
 };
 
-// main();
+// main(asset, meta);
+
 const myReader = async (txid) => {
+	console.log("...working hard to retrieve your data, please wait");
 	try {
 		let response = await read(txid);
 		let myMedia = {
@@ -69,19 +75,24 @@ const myReader = async (txid) => {
 		};
 		let myMeta = JSON.parse(response.meta);
 		//parsed meta gives our json object back
+
 		console.log("Reading success!", myMedia);
 		console.log("MyMeta", myMeta);
+		//get overall response
+		// console.log(response);
 		//get more detailed
-		console.log(
-			txid,
-			"authors and paymail",
-			myMeta.authorArray,
-			myMeta.authorPaymail
-		);
+		// console.log(
+		// 	`txid:  ${txid}`,
+		// 	`authors: ${myMeta.authorArray}`,
+		// 	`authors paymail: ${myMeta.authorPaymail}`,
+		// 	`publishDate:, ${myMeta.publishDate}`
+		// );
 	} catch (error) {
 		console.log(error);
 	}
 };
+
+// myReader();
 
 module.exports = {
 	myReader,
