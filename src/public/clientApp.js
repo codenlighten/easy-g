@@ -1,3 +1,5 @@
+const { resetWatchers } = require("nodemon/lib/monitor/watch");
+
 class Meta {
 	constructor(
 		application,
@@ -47,7 +49,8 @@ const handleClick = async () => {
 	file = await file.files[0];
 	let reader = new FileReader();
 	// reader.readAsDataURL(file);
-	reader.readAsArrayBuffer(file);
+	reader.readAsBinaryString(file);
+	// reader.readAsArrayBuffer(file);
 	reader.onload = function () {
 		let result = reader.result;
 		console.log(result);
@@ -77,4 +80,3 @@ const handleClick = async () => {
 	// 	"results"
 	// ).innerHTML = `<h4>${r.workTitle}</h4><br/><h4>${r.authorArray}</h4><br/><h4>${r.authorPaymail}</h4><br/><h4>${r.publishers}</h4><br/><h4>${r.publishersPaymail}</h4><br/>`;
 };
-
