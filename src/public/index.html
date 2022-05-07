@@ -5,15 +5,26 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="style.css" />
-		<script src="clientApp.js"></script>
 		<title>Document</title>
 	</head>
 	<body>
 		<h1>Streamable Test Site</h1>
 		<div id="app">
-			<input id="txid" type="text" placeholder="txid" />
+			<input id="workTitle" type="text" placeholder="workTitle" />
+			<input id="authorArray" type="text" placeholder="authorArray" />
+			<input id="authorPaymail" type="text" placeholder="authorPaymail" />
+			<input id="publishers" type="text" placeholder="publishers" />
+			<input type="text" id="publishersID" placeholder="publishersID" />
+			<input
+				id="publishersPaymail"
+				type="text"
+				placeholder="publishersPaymail"
+			/>
+			<input id="myAddress" type="text" placeholder="myBSVAddress" />
+			<input type="file" id="myFile" />
 			<button onclick="handleClick()">Submit</button>
 			<h3 id="results"></h3>
 		</div>
+		<script src="clientApp.js"></script>
 	</body>
 </html>
