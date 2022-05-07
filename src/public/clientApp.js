@@ -1,5 +1,3 @@
-const { resetWatchers } = require("nodemon/lib/monitor/watch");
-
 class Meta {
 	constructor(
 		application,
