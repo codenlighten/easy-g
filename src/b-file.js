@@ -34,23 +34,25 @@ class BFile {
 		});
 	}
 
-	static async fromFilePath(filePath, meta, logger = new NullLogger()) {
-		console.log(meta);
-		let fileBuffer;
+	static async fromFilePath(
+		fileName,
+		fileBuffer,
+		meta,
+		logger = new NullLogger()
+	) {
+		console.log(fileBuffer);
+		// meta = JSON.parse(meta);
+
+		console.log("meta", meta);
 		try {
-			fileBuffer = fs.readFileSync(filePath);
+			let appID = meta.appID;
+			meta = JSON.stringify(meta);
+			const mime = await detectMimeType(Buffer.from(fileBuffer));
+			// logger.info(`File resolved. Name: ${fileName} Mime type: ${mime}`);
+			return new this(fileBuffer, mime, "binary", fileName, appID, meta);
 		} catch (e) {
-			logger.fatal(`Cannot open specified route: ${filePath}`);
-			process.exit(1);
+			console.log(e);
 		}
-		let appID = meta.appID;
-		meta = JSON.stringify(meta);
-		const fileName = path.basename(filePath);
-		const mime = await detectMimeType(fileBuffer);
-		// console.log("mime", mime);
-		// console.log(fileBuffer);
-		logger.info(`File resolved. Name: ${fileName} Mime type: ${mime}`);
-		return new this(fileBuffer, mime, "binary", fileName, appID, meta);
 	}
 }
 

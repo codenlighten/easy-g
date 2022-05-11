@@ -46,15 +46,15 @@ let meta = new Meta(
 // console.log("meta", meta.appID);
 
 const asset = "./assets/nfty.png";
-const main = async (asset, meta) => {
+const main = async (fileName, buf, meta) => {
 	console.log("...working");
 	try {
-		const bFile = await BFile.fromFilePath(asset, meta);
+		const bFile = await BFile.fromFilePath(fileName, buf, meta);
 		// console.log(bFile);
 		const txid = await publish(bFile, networks.MAINNET, purse2);
 
 		console.log("Success Publishing media", txid);
-		myReader(txid);
+		return myReader(txid);
 	} catch (error) {
 		console.log(error);
 	}
@@ -87,6 +87,7 @@ const myReader = async (txid) => {
 		// 	`authors paymail: ${myMeta.authorPaymail}`,
 		// 	`publishDate:, ${myMeta.publishDate}`
 		// );
+		return myMedia;
 	} catch (error) {
 		console.log(error);
 	}

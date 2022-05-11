@@ -45,17 +45,7 @@ const handleClick = async () => {
 	];
 	let file = document.getElementById("myFile");
 	file = await file.files[0];
-	let reader = new FileReader();
-	// reader.readAsDataURL(file);
-	reader.readAsBinaryString(file);
-	// reader.readAsArrayBuffer(file);
-	reader.onload = function () {
-		let result = reader.result;
-		console.log(result);
-	};
-	reader.onerror = function () {
-		console.log(reader.error);
-	};
+	let fileName = document.getElementById("fileName").value || file.name;
 	let meta = new Meta(
 		application,
 		appID,
@@ -67,14 +57,30 @@ const handleClick = async () => {
 		publishersPaymail
 	);
 	meta = JSON.stringify(meta);
+	console.log(meta);
+	let reader = new FileReader();
+	reader.readAsArrayBuffer(file);
+	reader.onload = function () {
+		// let myData = { fileName, meta };
+		let formData = new FormData();
+		formData.append("asset", file);
+		formData.append("fileName", fileName);
+		formData.append("meta", meta);
+		axios({
+			method: "post",
+			url: "/mint",
+			data: formData,
+			headers: { "Content-Type": "multipart/form-data" },
+		})
+			.then(function (response) {
+				console.log(response);
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+	};
 
-	// let response = fetch(`${meta}`);
-	// let res = await response;
-	// let r = await res.json();
-	// let p = JSON.parse(r);
-	// console.log("p", p);
-	// console.log({ r });
-	// document.getElementById(
-	// 	"results"
-	// ).innerHTML = `<h4>${r.workTitle}</h4><br/><h4>${r.authorArray}</h4><br/><h4>${r.authorPaymail}</h4><br/><h4>${r.publishers}</h4><br/><h4>${r.publishersPaymail}</h4><br/>`;
+	reader.onerror = function () {
+		console.log(reader.error);
+	};
 };
