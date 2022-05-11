@@ -25,7 +25,7 @@ class Meta {
 
 const handleClick = async () => {
 	let application = "raregeneration.com";
-	let appID = "1CX54YFZcLSGzoUJHjAXNkTFh3WJRhSyH1";
+	let appID = "1HSq6J417PqxwXxAEWD3cdxDJVvkjELCHy";
 	let workTitle = document.getElementById("workTitle").value;
 	let authorArray = document.getElementById("authorArray").value;
 	let authorPaymail = document.getElementById("authorPaymail").value;
