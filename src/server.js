@@ -6,7 +6,7 @@ require("dotenv").config();
 const app = express();
 // const cors = require("cors");
 app.use(fileupload());
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "public"));
 app.use((req, res, next) => {
 	res.header("Access-Control-Allow-Origin", "*");
 	res.header("Access-Control-Allow-Headers", "Origin, Content-Type");
