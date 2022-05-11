@@ -9,23 +9,32 @@
 		<title>Document</title>
 	</head>
 	<body>
-		<h1>Streamable Test Site</h1>
+		<h1>Rare Generation</h1>
 		<div id="app">
-			<input id="workTitle" type="text" placeholder="workTitle" />
-			<input id="authorArray" type="text" placeholder="authorArray" />
-			<input id="authorPaymail" type="text" placeholder="authorPaymail" />
-			<input id="publishers" type="text" placeholder="publishers" />
-			<input type="text" id="publishersID" placeholder="publishersID" />
-			<input
-				id="publishersPaymail"
-				type="text"
-				placeholder="publishersPaymail"
-			/>
-			<input id="myAddress" type="text" placeholder="myBSVAddress" />
-			<input type="file" id="myFile" />
-			<input type="text" id="fileName" placeholder="Add Different Filename?" />
-			<button onclick="handleClick()">Submit</button>
-			<h3 id="results"></h3>
+			<div id="container">
+				<div id="inputs">
+					<input id="workTitle" type="text" placeholder="workTitle" />
+					<input id="authorArray" type="text" placeholder="First Author" />
+					<input id="authorPaymail" type="text" placeholder="Paymail Address" />
+					<input id="publishers" type="text" placeholder="publishers" />
+					<input type="text" id="publishersID" placeholder="publishersID" />
+					<input
+						id="publishersPaymail"
+						type="text"
+						placeholder="publishersPaymail"
+					/>
+					<input id="myAddress" type="text" placeholder="myBSVAddress" />
+					<input type="file" id="myFile" />
+					<input
+						type="text"
+						id="fileName"
+						placeholder="Add Different Filename?"
+					/>
+
+					<button onclick="handleClick()">Submit</button>
+					<h3 id="results"></h3>
+				</div>
+			</div>
 		</div>
 		<script src="clientApp.js"></script>
 	</body>

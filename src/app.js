@@ -3,6 +3,8 @@ const { BFile, networks } = require("./index");
 const { publish, read } = require("./commands/index");
 const bsv = require("bsv");
 
+console.log(bsv.Address.fromPrivateKey(bsv.PrivateKey.fromRandom()).toString());
+
 const purse = bsv.PrivateKey.fromWIF(process.env.PRIVATEKEY2);
 const purse2 = process.env.PRIVATEKEY2;
 // console.log(purse2);
@@ -30,10 +32,10 @@ class Meta {
 		this.publishDate = Date();
 	}
 }
-
+let streamableProtocol = "1HSq6J417PqxwXxAEWD3cdxDJVvkjELCHy";
 let meta = new Meta(
-	"streamable.fm",
-	"1CX54YFZcLSGzoUJHjAXNkTFh3WJRhSyH1",
+	"Rare Generation",
+	"1HSq6J417PqxwXxAEWD3cdxDJVvkjELCHy",
 	"NFTYPng",
 	["Greg Ward"],
 	["14hHqvoSB5nC5aiSAhxvEcpyg6CiLAhru9"],
