@@ -8,7 +8,7 @@ const app = express();
 app.use(fileupload());
 // app.use(express.static(__dirname + "/public"));
 app.use((req, res, next) => {
-	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Origin", "https://raregeneration.com");
 	res.header("Access-Control-Allow-Headers", "Origin, Content-Type");
 	next();
 });
