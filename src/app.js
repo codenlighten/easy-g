@@ -91,7 +91,7 @@ const myReader = async (txid) => {
 		// 	`authors paymail: ${myMeta.authorPaymail}`,
 		// 	`publishDate:, ${myMeta.publishDate}`
 		// );
-		return myMedia;
+		return { myMedia, myMeta };
 	} catch (error) {
 		console.log(error);
 	}

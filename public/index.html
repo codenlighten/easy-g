@@ -5,16 +5,17 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="style.css" />
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
-		<title>Document</title>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<link rel="icon" type="image/x-icon" href="./logoBig.png" />
+
+		<title>Rare Generation NFTS</title>
 	</head>
 	<body>
-		<br />
-		<br />
 		<div id="app">
 			<div id="container">
 				<img id="logo" src="./logo2.png" alt="" />
-				<h1>Rare Generation</h1>
+				<h1 id="title">Rare Generation</h1>
+
 				<h3>Register, Publish, and Mint NFTS</h3>
 				<h5>Music, Photos, Film, Art</h5>
 				<div id="inputs">
@@ -37,11 +38,50 @@
 					/>
 
 					<button onclick="handleClick()">Submit</button>
-					<h3 id="results"></h3>
+					<div id="progress" style="display: none"></div>
 				</div>
+				<div id="search">
+					<input
+						type="text"
+						id="txidSearch"
+						placeholder="Enter TXID To Search"
+					/>
+					<button onclick="getTXID()" id="search">Search</button>
+				</div>
+				<div id="mediaContainer" style="display: none">
+					<h3>Your Published Media</h3>
+					<img class="media" id="image" alt="" style="display: none" src="" />
+					<audio
+						class="media"
+						id="audio"
+						style="display: none"
+						controls
+						src=""
+					></audio>
+					<video
+						class="media"
+						id="video"
+						style="display: none"
+						controls
+						src=""
+					></video>
+				</div>
+				<div id="results">
+					<h3 id="txid"></h3>
+					<h3 id="appID"></h3>
+					<h3 id="fileName"></h3>
+				</div>
+
+				<h5 id="balance" style="word-wrap: break-word"></h5>
+				<div id="bsvPrice">
+					<h5 id="currency"></h5>
+					<h5 id="price"></h5>
+				</div>
+
+				<h5>© SmartLedger Solutions 2022.</h5>
 			</div>
 		</div>
-		<h4>Copyright SmartLedger Solutions 2022.</h4>
+
 		<script src="clientApp.js"></script>
 	</body>
 </html>

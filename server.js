@@ -14,6 +14,13 @@ app.use((req, res, next) => {
 });
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(express.json({ limit: "50mb", extended: true }));
+app.get("/tx", async (req, res) => {
+	let tx = req.query;
+	console.log(tx);
+	let myTx = await getTxInfo(tx.txid);
+	console.log(myTx);
+	res.send(myTx);
+});
 app.post("/mint", async (req, res) => {
 	let media = req.files;
 	let body = req.body;
