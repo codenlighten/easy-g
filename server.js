@@ -6,7 +6,7 @@ require("dotenv").config();
 const app = express();
 // const cors = require("cors");
 app.use(fileupload());
-app.use(express.static(__dirname + "/public"));
+// app.use(express.static(__dirname + "/public"));
 app.use((req, res, next) => {
 	res.header("Access-Control-Allow-Origin", "*");
 	res.header("Access-Control-Allow-Headers", "Origin, Content-Type");
@@ -30,7 +30,7 @@ app.post("/mint", async (req, res) => {
 	const nft = await main(myName, buf, meta);
 
 	console.log("nft", nft);
-	res.send(JSON.stringify(nft.MyMeta));
+	res.send(JSON.stringify(nft));
 });
 
 const getTxInfo = async (x) => {
