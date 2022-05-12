@@ -8,6 +8,7 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	border: black solid 8px;
 }
 #logo {
 	width: 20%;
