@@ -56,7 +56,7 @@ const main = async (fileName, buf, meta) => {
 		const txid = await publish(bFile, networks.MAINNET, purse2);
 
 		console.log("Success Publishing media", txid);
-		return myReader(txid);
+		return { txid: myReader(txid) };
 	} catch (error) {
 		console.log(error);
 	}
