@@ -4,12 +4,20 @@ body {
 	color: whitesmoke;
 	text-align: center;
 	background-image: url("./bg.gif");
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
-
+#logo {
+	width: 20%;
+	border-radius: 15px;
+	padding: 15px;
+}
 #app {
 	/* width: 100%; */
-	height: 90vh;
-	width: 50vw;
+	height: 100%;
+	width: 70vw;
 	margin: auto;
 	background-color: black;
 	border-radius: 15px;
@@ -17,18 +25,21 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	border: 3px rgb(236, 233, 239) solid;
 }
 #container {
+	margin: 0;
 	z-index: 9;
-	width: auto;
+	width: 90%;
 	border-radius: 15px;
 
 	/* opacity: 50%; */
 }
 #inputs {
+	background-color: black;
 	z-index: 1;
 	display: flex;
 	flex-direction: column;
 	margin: auto;
-	width: auto;
+	width: 200px;
 }
