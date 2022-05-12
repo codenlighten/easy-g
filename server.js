@@ -46,9 +46,7 @@ const getTxInfo = async (x) => {
 
 	return myTx;
 };
-// app.get("/app", (req, res) => {
-// 	console.log(req.params);
-// });
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
