@@ -18,8 +18,7 @@ class Meta {
 		authorPaymail,
 		publishers,
 		publishersID,
-		publishersPaymail,
-		publishDate
+		publishersPaymail
 	) {
 		(this.application = application),
 			(this.appID = appID),
@@ -83,15 +82,6 @@ const myReader = async (txid) => {
 
 		console.log("Reading success!", myMedia);
 		console.log("MyMeta", myMeta);
-		//get overall response
-		// console.log(response);
-		//get more detailed
-		// console.log(
-		// 	`txid:  ${txid}`,
-		// 	`authors: ${myMeta.authorArray}`,
-		// 	`authors paymail: ${myMeta.authorPaymail}`,
-		// 	`publishDate:, ${myMeta.publishDate}`
-		// );
 		return { myMedia, myMeta, DRMhash };
 	} catch (error) {
 		console.log(error);
