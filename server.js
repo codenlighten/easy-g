@@ -4,9 +4,7 @@ const express = require("express");
 var fileupload = require("express-fileupload");
 require("dotenv").config();
 const app = express();
-// const cors = require("cors");
 app.use(fileupload());
-// app.use(express.static(__dirname + "/public"));
 app.use((req, res, next) => {
 	res.header("Access-Control-Allow-Origin", "https://raregeneration.com");
 	res.header("Access-Control-Allow-Headers", "Origin, Content-Type");

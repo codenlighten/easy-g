@@ -35,7 +35,7 @@ const publish = async (bFile, network, purseWif, logger = new NullLogger()) => {
 
 	// new tx
 	const tx = new Transaction();
-	tx.feePerKb(250);
+	tx.feePerKb(50);
 
 	// Build tx consumming utxos for current key
 	const utxos = await blockchain.utxos(inputAddress.toString());
