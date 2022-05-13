@@ -190,6 +190,7 @@ const getTXID = async () => {
 		.get(`http://localhost:5000/tx/`, { params: { txid } })
 		.then(function (response) {
 			console.log(response.data);
+
 			let metaResponse = response.data.myMedia;
 			// let txid = response.data.txid;
 			let data = metaResponse.buff.data;

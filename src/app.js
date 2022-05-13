@@ -77,6 +77,7 @@ const myReader = async (txid) => {
 			fileName: response.fileName,
 			appID: response.appID,
 		};
+		let DRMhash = response.DRMhash;
 		let myMeta = JSON.parse(response.meta);
 		//parsed meta gives our json object back
 
@@ -91,7 +92,7 @@ const myReader = async (txid) => {
 		// 	`authors paymail: ${myMeta.authorPaymail}`,
 		// 	`publishDate:, ${myMeta.publishDate}`
 		// );
-		return { myMedia, myMeta };
+		return { myMedia, myMeta, DRMhash };
 	} catch (error) {
 		console.log(error);
 	}
