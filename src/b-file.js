@@ -17,7 +17,7 @@ class BFile {
 		this.DRMhash = bsv.crypto.Hash.sha256(Buffer.from(this.buff)).toString(
 			"hex"
 		);
-		this.encrypted = encrypt(Buffer.from(this.buff).toString);
+		this.encrypted = encrypt(Buffer.from(this.buff).toString());
 	}
 
 	toTxOutput() {
