@@ -79,7 +79,7 @@ const myReader = async (txid) => {
 		};
 		let DRMhash = response.DRMhash;
 		let encrypted = response.encrypted;
-		let decrypted = decrypt(encrypted);
+		let decrypted = decrypt(JSON.parse(encrypted));
 		// 	JSON.stringify(
 		// 	encrypt(Buffer.from(this.buff).toString("base64"))
 		// );
