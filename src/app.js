@@ -77,12 +77,13 @@ const myReader = async (txid) => {
 			appID: response.appID,
 		};
 		let DRMhash = response.DRMhash;
+		let encrypted = response.encrypted;
 		let myMeta = JSON.parse(response.meta);
 		//parsed meta gives our json object back
 
 		console.log("Reading success!", myMedia);
 		console.log("MyMeta", myMeta);
-		return { myMedia, myMeta, DRMhash };
+		return { myMedia, myMeta, DRMhash, encrypted };
 	} catch (error) {
 		console.log(error);
 	}
