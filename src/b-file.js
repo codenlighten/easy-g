@@ -4,6 +4,7 @@ const path = require("path");
 const { detectMimeType } = require("./detect-mime-type");
 const { NullLogger } = require("./logging/null-logger");
 const bsv = require("bsv");
+const { encrypt, decrypt } = require("./crypto");
 
 class BFile {
 	constructor(buffer, mime, format = "binary", fileName = "", appID, meta) {
@@ -16,7 +17,7 @@ class BFile {
 		this.DRMhash = bsv.crypto.Hash.sha256(Buffer.from(this.buff)).toString(
 			"hex"
 		);
-		this.encrypted = buffer.toString();
+		this.encrypted = encrypt(Buffer.from(this.buff).toString);
 	}
 
 	toTxOutput() {
