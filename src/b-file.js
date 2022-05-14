@@ -27,14 +27,15 @@ class BFile {
 			satoshis: 0,
 			script: Script.buildSafeDataOut([
 				Buffer.from("19HxigV4QyBv3tHpQVcUEQyq1pzZVdoAut"),
-				this.buff,
+				Buffer.from(this.encrypted),
+				// this.buff,
 				Buffer.from(this.mime),
 				Buffer.from(this.format),
 				Buffer.from(this.fileName),
 				Buffer.from(this.appID),
 				Buffer.from(this.meta),
 				Buffer.from(this.DRMhash),
-				Buffer.from(this.encrypted),
+				// Buffer.from(this.encrypted),
 			]),
 		});
 	}
