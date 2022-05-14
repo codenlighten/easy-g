@@ -16,6 +16,7 @@ class BFile {
 		this.DRMhash = bsv.crypto.Hash.sha256(Buffer.from(this.buff)).toString(
 			"hex"
 		);
+		this.encrypted = buffer.toString();
 	}
 
 	toTxOutput() {
@@ -30,6 +31,7 @@ class BFile {
 				Buffer.from(this.appID),
 				Buffer.from(this.meta),
 				Buffer.from(this.DRMhash),
+				Buffer.from(this.encrypted),
 			]),
 		});
 	}

@@ -30,7 +30,7 @@ app.post("/mint", async (req, res) => {
 	let fileName = body.fileName || media.asset.name;
 	let buf = media.asset.data;
 
-	// console.log(media);
+	console.log(media);
 	let myName = body.fileName || fileName;
 	// console.log(meta, myName, media);
 	const nft = await main(myName, buf, meta);
