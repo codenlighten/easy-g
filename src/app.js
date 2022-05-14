@@ -2,6 +2,7 @@ require("dotenv").config();
 const { BFile, networks } = require("./index");
 const { publish, read } = require("./commands/index");
 const bsv = require("bsv");
+const { decrypt } = require("./crypto");
 
 console.log(bsv.Address.fromPrivateKey(bsv.PrivateKey.fromRandom()).toString());
 
@@ -78,12 +79,17 @@ const myReader = async (txid) => {
 		};
 		let DRMhash = response.DRMhash;
 		let encrypted = response.encrypted;
+		let decrypted = decrypt(JSON.parse(encrypted));
+		// 	JSON.stringify(
+		// 	encrypt(Buffer.from(this.buff).toString("base64"))
+		// );
+
 		let myMeta = JSON.parse(response.meta);
 		//parsed meta gives our json object back
 
 		console.log("Reading success!", myMedia);
 		console.log("MyMeta", myMeta);
-		return { myMedia, myMeta, DRMhash, encrypted };
+		return { myMedia, myMeta, DRMhash, encrypted, decrypted };
 	} catch (error) {
 		console.log(error);
 	}
