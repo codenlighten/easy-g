@@ -17,9 +17,7 @@ class BFile {
 		this.DRMhash = bsv.crypto.Hash.sha256(Buffer.from(this.buff)).toString(
 			"hex"
 		);
-		this.encrypted = JSON.stringify(
-			encrypt(Buffer.from(this.buff).toString("base64"))
-		);
+		this.encrypted = Buffer.from(this.buff).toString("base64");
 	}
 
 	toTxOutput() {
@@ -27,15 +25,14 @@ class BFile {
 			satoshis: 0,
 			script: Script.buildSafeDataOut([
 				Buffer.from("19HxigV4QyBv3tHpQVcUEQyq1pzZVdoAut"),
-				Buffer.from(this.encrypted),
-				// this.buff,
+				this.buff,
 				Buffer.from(this.mime),
 				Buffer.from(this.format),
 				Buffer.from(this.fileName),
 				Buffer.from(this.appID),
 				Buffer.from(this.meta),
 				Buffer.from(this.DRMhash),
-				// Buffer.from(this.encrypted),
+				Buffer.from(this.encrypted),
 			]),
 		});
 	}
