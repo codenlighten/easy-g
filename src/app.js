@@ -47,7 +47,6 @@ let meta = new Meta(
 
 // console.log("meta", meta.appID);
 
-const asset = "./assets/nfty.png";
 const main = async (fileName, buf, meta) => {
 	console.log("...working");
 	try {
