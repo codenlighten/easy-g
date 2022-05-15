@@ -50,6 +50,7 @@ const getTxInfo = async (x) => {
 
 const port = process.env.PORT;
 
-app.listen(port, () => {
+app.listen(port, (err) => {
 	console.log(`listening on Port ${port}`);
+	console.log(err);
 });
