@@ -30,12 +30,8 @@ app.post("/mint", async (req, res) => {
 	let buf = body.asset;
 	buf = decodeURI(buf);
 	console.log("buf", buf);
-
-	let fileName = body.fileName || buf.name;
-
-	buf = Buffer.from(buf).toString("hex");
 	console.log("buffer", buf);
-	let myName = body.fileName || fileName;
+	let myName = body.fileName;
 	// console.log(meta, myName, media);
 	const nft = await main(myName, buf, meta);
 
