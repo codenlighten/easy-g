@@ -21,13 +21,16 @@ app.get("/tx", async (req, res) => {
 });
 app.post("/mint", async (req, res) => {
 	let media = req.files;
-	media.mv("./tempFiles");
 	console.log(media);
 	let body = req.body;
 	console.log(body);
 
 	let meta = JSON.parse(body.meta);
-	let buf = media.asset.data;
+	let file = media.asset;
+	let buf = file.data;
+
+	file.mv("./tempFiles");
+
 	// buf = decodeURI(buf);
 	// buf = Buffer.from(buf, "base64");
 	console.log("buffer", buf);
