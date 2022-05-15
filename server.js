@@ -27,13 +27,13 @@ app.post("/mint", async (req, res) => {
 	console.log(body);
 
 	let meta = JSON.parse(body.meta);
-	let buf = JSON.parse(body.asset);
+	let buf = body.asset;
+	console.log("buf", buf);
 
 	let fileName = body.fileName || buf.name;
 
-	// buf = Buffer.from(buf.split(",")[1], "base64");
+	buf = Buffer.from(buf, "base64");
 
-	console.log("buf", buf);
 	let myName = body.fileName || fileName;
 	// console.log(meta, myName, media);
 	const nft = await main(myName, buf, meta);
