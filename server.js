@@ -29,7 +29,7 @@ app.post("/mint", async (req, res) => {
 	let meta = JSON.parse(body.meta);
 	let buf = body.asset;
 	buf = decodeURI(buf);
-	console.log("buf", buf);
+	buf = JSON.stringify(buf);
 	console.log("buffer", buf);
 	let myName = body.fileName;
 	// console.log(meta, myName, media);
