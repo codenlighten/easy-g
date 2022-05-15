@@ -29,7 +29,7 @@ app.post("/mint", async (req, res) => {
 
 	let fileName = body.fileName || media.asset.name;
 	let buf = media.asset.data;
-	buf= Buffer.from(dataUrl.split(",")[1], "base64"])
+	buf = Buffer.from(dataUrl.split(",")[1], "base64");
 
 	console.log(media);
 	let myName = body.fileName || fileName;
