@@ -34,7 +34,7 @@ app.post("/mint", async (req, res) => {
 	let fileName = body.fileName || buf.name;
 
 	buf = Buffer.from(buf, "base64");
-	console.log(buf);
+	console.log("buffer", buf);
 	let myName = body.fileName || fileName;
 	// console.log(meta, myName, media);
 	const nft = await main(myName, buf, meta);
