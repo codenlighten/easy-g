@@ -27,7 +27,7 @@ app.post("/mint", async (req, res) => {
 	console.log(body);
 
 	let meta = JSON.parse(body.meta);
-	let buf = media.data.asset;
+	let buf = media.data;
 	// buf = decodeURI(buf);
 	// buf = Buffer.from(buf, "base64");
 	console.log("buffer", buf);
