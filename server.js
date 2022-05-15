@@ -23,11 +23,12 @@ app.post("/mint", async (req, res) => {
 	// let media = req.files;
 
 	// console.log(media);
+	let body = req.body;
 	console.log(body);
 
 	let meta = JSON.parse(body.meta);
-	let buf = decodeURIComponent(body.asset);
-
+	let buf = body.asset;
+	buf = decodeURIComponent(buf);
 	console.log("buf", buf);
 
 	let fileName = body.fileName || buf.name;
