@@ -53,6 +53,7 @@ class BFile {
 			let appID = meta.appID;
 			meta = JSON.stringify(meta);
 			const mime = await detectMimeType(Buffer.from(fileBuffer));
+			console.log(mime);
 			// logger.info(`File resolved. Name: ${fileName} Mime type: ${mime}`);
 			return new this(fileBuffer, mime, "binary", fileName, appID, meta);
 		} catch (e) {
