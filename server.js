@@ -21,6 +21,7 @@ app.get("/tx", async (req, res) => {
 });
 app.post("/mint", async (req, res) => {
 	let media = req.files;
+	console.log(media);
 	let body = req.body;
 	console.log(body.fileName);
 
@@ -29,9 +30,9 @@ app.post("/mint", async (req, res) => {
 
 	let fileName = body.fileName || media.asset.name;
 	let buf = media.asset.data;
-	buf = Buffer.from(buf.split(",")[1], "base64");
+	// buf = Buffer.from(buf.split(",")[1], "base64");
 
-	console.log(media);
+	console.log(buf);
 	let myName = body.fileName || fileName;
 	// console.log(meta, myName, media);
 	const nft = await main(myName, buf, meta);
