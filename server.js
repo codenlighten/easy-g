@@ -22,15 +22,15 @@ app.get("/tx", async (req, res) => {
 app.post("/mint", async (req, res) => {
 	let media = req.files;
 
-	// console.log(media);
+	console.log(media);
 	let body = req.body;
 	console.log(body.fileName);
-
+	let buf = JSON.parse(media);
 	let meta = JSON.parse(body.meta);
 	// console.log(body.meta);
 
 	let fileName = body.fileName || media.asset.name;
-	let buf = media.asset.data;
+	buf = media.asset.data;
 	// buf = Buffer.from(buf.split(",")[1], "base64");
 
 	// console.log(buf);
