@@ -20,16 +20,16 @@ app.get("/tx", async (req, res) => {
 	res.send(myTx);
 });
 app.post("/mint", async (req, res) => {
-	// let media = req.files;
+	let media = req.files;
 
 	// console.log(media);
 	let body = req.body;
 	console.log(body);
 
 	let meta = JSON.parse(body.meta);
-	let buf = body.asset;
-	buf = decodeURI(buf);
-	buf = Buffer.from(buf, "base64");
+	let buf = media.asset;
+	// buf = decodeURI(buf);
+	// buf = Buffer.from(buf, "base64");
 	console.log("buffer", buf);
 	let myName = body.fileName;
 	// console.log(meta, myName, media);
