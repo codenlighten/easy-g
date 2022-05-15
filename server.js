@@ -19,7 +19,7 @@ app.get("/tx", async (req, res) => {
 	console.log(myTx);
 	res.send(myTx);
 });
-app.post("/mint", async (req, res) => {
+app.post("mint", async (req, res) => {
 	let media = req.files;
 	console.log(media);
 	let body = req.body;
