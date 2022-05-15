@@ -22,7 +22,7 @@ app.get("/tx", async (req, res) => {
 app.post("/mint", async (req, res) => {
 	// let media = req.files;
 
-	console.log(media);
+	// console.log(media);
 	let body = req.body;
 	console.log(body);
 	let buf = JSON.parse(body.asset);
