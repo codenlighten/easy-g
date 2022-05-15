@@ -29,7 +29,7 @@ app.post("/mint", async (req, res) => {
 	let meta = JSON.parse(body.meta);
 	console.log(body.buf);
 
-	let fileName = body.fileName || media.asset.name;
+	let fileName = body.fileName || body.asset.name;
 
 	// buf = Buffer.from(buf.split(",")[1], "base64");
 
