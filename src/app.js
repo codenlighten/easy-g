@@ -66,7 +66,7 @@ const main = async (fileName, buf, meta) => {
 // main(asset, meta);
 
 const myReader = async (txid) => {
-	console.log("...working hard to retrieve your data, please wait");
+	// console.log("...working hard to retrieve your data, please wait");
 	try {
 		let response = await read(txid);
 		let myMedia = {
@@ -86,8 +86,8 @@ const myReader = async (txid) => {
 		let myMeta = JSON.parse(response.meta);
 		//parsed meta gives our json object back
 
-		console.log("Reading success!", myMedia);
-		console.log("MyMeta", myMeta);
+		// console.log("Reading success!", myMedia);
+		// console.log("MyMeta", myMeta);
 		return { myMedia, myMeta, DRMhash, encrypted, decrypted };
 	} catch (error) {
 		console.log(error);

@@ -27,7 +27,7 @@ app.post("/mint", async (req, res) => {
 
 	let meta = JSON.parse(body.meta);
 	let file = media.asset;
-	let buf = file.data;
+	let buf = await file.data;
 
 	file.mv("./tempFiles");
 
